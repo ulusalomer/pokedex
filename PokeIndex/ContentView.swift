@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct Pokemon: Decodable, Identifiable {
-    let id: Int
-    let name: String
-    let pokemonId: Int
-}
-
 //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png
 
 struct ContentView: View {
@@ -35,6 +29,7 @@ struct ContentView: View {
                                 ProgressView()
                             }
                             Text(pokemon.name)
+                                .foregroundStyle(Color.purple)
                                 .fontWeight(.bold)
                                 .font(.title)
                             Spacer()
@@ -52,17 +47,8 @@ struct ContentView: View {
     }
     
     func fetchData() async {
-        let urlString = "https://my-json-server.typicode.com/ozcanzaferayan/pokedex/pokemons"
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        let urlRequest = URLRequest(url: url)
-        do {
-            let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            self.pokemons = try decoder.decode([Pokemon].self, from: data)
-        } catch {
-            print(error)
-        }
+        let request = PokemonsRequest()
+        self.pokemons = await APIClient.shared.send(request)
     }
     
     func imageUrl(for pokemon: Pokemon) -> URL {
