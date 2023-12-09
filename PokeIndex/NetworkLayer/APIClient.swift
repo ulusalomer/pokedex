@@ -18,7 +18,7 @@ final class APIClient {
     func send<T: Request>(_ request: T) async -> T.Response {
         do {
             let (data, _) = try await URLSession.shared.data(for: request.asURLRequest)
-            print(String.init(data: data, encoding: .utf8))
+            //print(String.init(data: data, encoding: .utf8))
             return try decoder.decode(T.Response.self, from: data)
         } catch {
             fatalError()

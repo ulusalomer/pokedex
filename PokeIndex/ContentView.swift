@@ -9,6 +9,10 @@ import SwiftUI
 
 //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png
 
+//enum NavigationItem: Hashable {
+//    case detail
+//}
+
 struct ContentView: View {
     let decoder = JSONDecoder()
     
@@ -47,8 +51,8 @@ struct ContentView: View {
     }
     
     func fetchData() async {
-        let request = PokemonsRequest()
-        self.pokemons = await APIClient.shared.send(request)
+//        let request = PokemonsRequest()
+//        self.pokemons = await APIClient.shared.send(request)
     }
     
     func imageUrl(for pokemon: Pokemon) -> URL {
