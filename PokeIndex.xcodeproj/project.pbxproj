@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF0946482B22455C0028EAAD /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0946472B22455C0028EAAD /* SettingsScreen.swift */; };
 		FF09464A2B2248A90028EAAD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0946492B2248A90028EAAD /* LoginView.swift */; };
+		FF2A61492B34B5D200942DCE /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A61482B34B5D200942DCE /* AddView.swift */; };
 		FF35A7C92B0FC046000BD7AA /* PokeIndexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35A7C82B0FC046000BD7AA /* PokeIndexApp.swift */; };
 		FF35A7CB2B0FC046000BD7AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35A7CA2B0FC046000BD7AA /* ContentView.swift */; };
 		FF35A7CD2B0FC047000BD7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF35A7CC2B0FC047000BD7AA /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		FF0946472B22455C0028EAAD /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		FF0946492B2248A90028EAAD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FF2A61482B34B5D200942DCE /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		FF35A7C52B0FC046000BD7AA /* PokeIndex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeIndex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF35A7C82B0FC046000BD7AA /* PokeIndexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeIndexApp.swift; sourceTree = "<group>"; };
 		FF35A7CA2B0FC046000BD7AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				FF35A7CF2B0FC047000BD7AA /* Preview Content */,
 				FF0946472B22455C0028EAAD /* SettingsScreen.swift */,
 				FF0946492B2248A90028EAAD /* LoginView.swift */,
+				FF2A61482B34B5D200942DCE /* AddView.swift */,
 			);
 			path = PokeIndex;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				FF09464A2B2248A90028EAAD /* LoginView.swift in Sources */,
 				FFE852D92B166DD1009B9FFE /* Request.swift in Sources */,
 				FF35A7C92B0FC046000BD7AA /* PokeIndexApp.swift in Sources */,
+				FF2A61492B34B5D200942DCE /* AddView.swift in Sources */,
 				FFE852DC2B166E7D009B9FFE /* PokemonsRequest.swift in Sources */,
 				FF0946482B22455C0028EAAD /* SettingsScreen.swift in Sources */,
 				FFE852D72B166D36009B9FFE /* APIClient.swift in Sources */,

@@ -9,17 +9,20 @@ import SwiftUI
 
 //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png
 
-//enum NavigationItem: Hashable {
-//    case detail
-//}
+enum FullScreenItem: String, Identifiable {
+    var id: String { rawValue }
+    
+    case add
+}
 
 struct ContentView: View {
     let decoder = JSONDecoder()
     
     @State var pokemons: [Pokemon] = []
+    @State var fullScreenItem: FullScreenItem?
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottomTrailing) {
             LinearGradient(colors: [.pink, .purple], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             ScrollView {
@@ -32,7 +35,7 @@ struct ContentView: View {
                             } placeholder: {
                                 ProgressView()
                             }
-                            Text(pokemon.name)
+                            Text(pokemon.name ?? "caner")
                                 .foregroundStyle(Color.purple)
                                 .fontWeight(.bold)
                                 .font(.title)
@@ -44,19 +47,39 @@ struct ContentView: View {
                 }
             }
             .padding()
+            
+            Button {
+                fullScreenItem = .add
+            } label: {
+                Image(systemName: "plus")
+                    .padding(20)
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .padding(20)
+            }
         }
         .task {
             await fetchData()
         }
+        .sheet(item: $fullScreenItem) { item in
+            switch item {
+            case .add:
+                AddView()
+            }
+        }
     }
     
     func fetchData() async {
-//        let request = PokemonsRequest()
-//        self.pokemons = await APIClient.shared.send(request)
+        let request = PokemonsRequest()
+        do {
+            self.pokemons = try await APIClient.shared.send(request)
+        } catch {
+            print(error)
+        }
     }
     
     func imageUrl(for pokemon: Pokemon) -> URL {
-        URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemon.pokemonId).png")!
+        return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemon.pokemonId!)).png")!
     }
     
     enum FetchError: Error {
